@@ -314,8 +314,8 @@ struct BcSelectionTask {
           metadata["runNumber"] = Form("%d", run);
           auto grpecs = ccdb->getSpecific<o2::parameters::GRPECSObject>("GLO/Config/GRPECS", ts, metadata);
           uint32_t nOrbitsPerTF = grpecs->getNHBFPerTF(); // assuming 1 orbit = 1 HBF;  nOrbitsPerTF=128 in 2022, 32 in 2023
-          tsSOR = grpecs->getTimeStart();        // ms
-          tsEOR = grpecs->getTimeEnd();          // ms
+          tsSOR = grpecs->getTimeStart();                 // ms
+          tsEOR = grpecs->getTimeEnd();                   // ms
 
           // calculate SOR and EOR orbits
           int64_t orbitSOR = (tsSOR * 1000 - tsOrbitReset) / o2::constants::lhc::LHCOrbitMUS;
@@ -326,7 +326,7 @@ struct BcSelectionTask {
           orbitEOR = orbitEOR / nOrbitsPerTF * nOrbitsPerTF; // was with - 1;
 
           // set nOrbits and minOrbit used for orbit-axis binning
-          //nOrbits = orbitEOR - orbitSOR;
+          // nOrbits = orbitEOR - orbitSOR;
           // minOrbit = orbitSOR;
 
           int nBCsPerOrbit = 3564;
@@ -338,7 +338,7 @@ struct BcSelectionTask {
       }
       int64_t bcInTF = (globalBC - bcSOR) % nBCsPerTF;
       LOGP(debug, "bcInTF={}", bcInTF);
-      selection |= bcInTF > confTimeFrameStartBorderMargin && bcInTF < nBCsPerTF-confTimeFrameEndBorderMargin ? BIT(kNoTimeFrameBorder) : 0;
+      selection |= bcInTF > confTimeFrameStartBorderMargin && bcInTF < nBCsPerTF - confTimeFrameEndBorderMargin ? BIT(kNoTimeFrameBorder) : 0;
 
       int32_t foundFT0 = bc.has_ft0() ? bc.ft0().globalIndex() : -1;
       int32_t foundFV0 = bc.has_fv0a() ? bc.fv0a().globalIndex() : -1;
