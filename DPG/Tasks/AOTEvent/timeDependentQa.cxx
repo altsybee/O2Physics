@@ -50,7 +50,7 @@ const AxisSpec axisSparseDcaR{100, -1., 1., "DCA_{r}, cm"};
 const AxisSpec axisSparseDcaZ{100, -1., 1., "DCA_{z}, cm"};
 
 struct TimeDependentQaTask {
-  Configurable<double> confTimeBinWidthInSec{"TimeBinWidthInSec", 0.25, "Width of time bins in seconds"};                                                                         // o2-linter: disable=name/configurable
+  Configurable<double> confTimeBinWidthInSec{"TimeBinWidthInSec", 0.25, "Width of time bins in seconds"};                                                                        // o2-linter: disable=name/configurable
   Configurable<int> confTakeVerticesWithUPCsettings{"ConsiderVerticesWithUPCsettings", 0, "Take vertices: 0 - all , 1 - only without UPC settings, 2 - only with UPC settings"}; // o2-linter: disable=name/configurable
   Configurable<int> confFillEtaPhiVsTimeHist{"FillEtaPhiVsTimeHist", 0, "0 - don't fill , 1 - fill"};                                                                            // o2-linter: disable=name/configurable
 
