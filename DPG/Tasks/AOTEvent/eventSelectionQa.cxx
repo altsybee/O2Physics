@@ -44,7 +44,7 @@
 #include <TMath.h>
 #include <TString.h>
 
-#include "TrackTools/TrackGeometry.h"
+#include <TrackTools/TrackGeometry.h>
 #include <sys/types.h>
 
 #include <bitset>
